@@ -33,5 +33,7 @@ for i in range(len(strs)):
         break
 
 
-
 print(flag)
+
+# trouble shooting
+# 새롭게 알게 된 부분 - isalnum() : 영문자, 숫자를 판별하는 함수
