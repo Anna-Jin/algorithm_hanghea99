@@ -14,7 +14,8 @@ def expand(left, right):
     return s[left + 1:right]
 
 
-if len(s) < 2 or s == s[::-1]:
+# 해당 사항이 없을 때, 빠르게 리턴
+if len(s) < 2 or s == s[::-1]:  # s[::-1] -> 문자열을 역순으로 배열
     print(s)
 
 result = ''
@@ -23,8 +24,8 @@ result = ''
 # range(len(s) - 1) -> s의 길이가 5일 때, 최소 2글자가 출력되려면 s[4:5]이므로 i의 최대값은 len(s) - 1 이다.
 for i in range(len(s) - 1):
     result = max(result,
-                 expand(i, i+1),    # 홀수일 때
-                 expand(i, i+2),    # 짝수일 때
+                 expand(i, i + 1),  # 홀수일 때
+                 expand(i, i + 2),  # 짝수일 때
                  key=len)
 
 print(result)
