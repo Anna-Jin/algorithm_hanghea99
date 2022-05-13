@@ -1,9 +1,9 @@
 # 7장 배열 - 10. 배열 파티션
 # n개의 페어를 이용한 min(a, b)의 합으로 만들 수 있는 가장 큰 수를 출력하라
 
-nums = [1, 4, 3, 2]
+nums = [6,2,6,5,1,2]
 
-print(sum(sorted(nums[::2])))
+print(sum(sorted(nums)[::2]))
 
 
 # 내 접근
@@ -32,8 +32,7 @@ print(sum(nums[::2]))
 
 
 # 함수 정리
-
 # print(sum(nums.sort()[::2])) -> .sort()는 return값이 None이다.
 
 # sorted() 키워드 사용하기
-print(sum(sorted(nums[::2])))
+print(sum(sorted(nums)[::2]))
