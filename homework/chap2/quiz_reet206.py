@@ -20,7 +20,7 @@ def reverseList(head: ListNode) -> ListNode:
     return prev
 
 def reverseList(head: ListNode) -> ListNode:
-    def reverse(node: ListNode, prev: ListNode) -> ListNode:
+    def reverse(node: ListNode, prev: ListNode):
         # node가 없을 때, null을 반환
         if not node:
             return prev
