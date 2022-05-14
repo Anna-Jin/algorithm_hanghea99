@@ -14,7 +14,7 @@ class LinkedList:
     def append(self, val):
         # 리스트가 비어있다면
         if not self.head:
-            self.head = ListNode(val, None) # head에 첫번째 값을 넣는다. 연결할 다음 노드는 없다.
+            self.head = ListNode(val, None)  # head에 첫번째 값을 넣는다. 연결할 다음 노드는 없다.
         return
 
         # 비어있지 않는다면
@@ -27,17 +27,7 @@ class LinkedList:
         node.next = ListNode(val, None)
 
 
-# 입력값
-head = [1,2,2,1]
-
-
-l1 = LinkedList()
-
-for num in head:
-    l1.append(num)
-
 def isPalindrome(head):
-
     arr = []
 
     # head가 비어있다면 ture 반환
@@ -51,10 +41,18 @@ def isPalindrome(head):
         # 다음 노드로 옮겨간다
         node = node.next
 
-    while len(arr) > 1: # pop을 2개씩 하기 때문에 배열의 길이는 2 이상이어야함
+    while len(arr) > 1:  # pop을 2개씩 하기 때문에 배열의 길이는 2 이상이어야함
         if arr.pop(0) != arr.pop():
             return False
 
     return True
 
 
+# 입력값
+head = [1, 2, 2, 1]
+
+l1 = LinkedList()
+for num in head:
+    l1.append(num)
+
+print(isPalindrome(l1.head))
