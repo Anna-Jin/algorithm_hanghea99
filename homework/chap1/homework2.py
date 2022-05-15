@@ -3,7 +3,7 @@
 
 # 입력
 
-s = "babad"
+s = "babada"
 
 # 팰린드롬 판별 및 투 포인터 확장
 def expand(left, right):
@@ -27,8 +27,8 @@ result = ''
 # range(len(s) - 1) -> s의 길이가 5일 때, 최소 2글자가 출력되려면 s[4:5]이므로 i의 최대값은 len(s) - 1 이다.
 for i in range(len(s) - 1):
     result = max(result,
-                 expand(i, i + 1),  # 홀수일 때
-                 expand(i, i + 2),  # 짝수일 때
+                 expand(i, i + 1),  # 짝수일 때
+                 expand(i, i + 2),  # 홀수일 때
                  key=len)
 
 print(result)
