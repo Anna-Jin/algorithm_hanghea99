@@ -19,7 +19,7 @@ def oddEvenList(head: ListNode) -> ListNode:
     even = head.next
     even_head = head.next
 
-    # odd가 있을 때까지 반복
+    # even이 head.next 즉, 맨 뒤의 값이므로 even기준으로 while문을 돌린다.
     while even and even.next:
         # odd와 even의 다음
         odd.next, even.next = odd.next.next, even.next.next
