@@ -10,17 +10,17 @@ class ListNode:
 # 내 접근
 # head 노드 뒤에 prev를 두고 한칸씩 prev로 옮긴다.
 
+# def reverseList(head: ListNode) -> ListNode:
+#     node, prev = head, None
+#
+#     while node:
+#         next, node.next = node.next, prev
+#         prev, node = node, next
+#
+#     return prev
+
 def reverseList(head: ListNode) -> ListNode:
-    node, prev = head, None
-
-    while node:
-        next, node.next = node.next, prev
-        prev, node = node, next
-
-    return prev
-
-def reverseList(head: ListNode) -> ListNode:
-    def reverse(node: ListNode, prev: ListNode):
+    def reverse(node: ListNode, prev: ListNode = None):
         # node가 없을 때, null을 반환
         if not node:
             return prev
@@ -38,3 +38,4 @@ head.next.next = ListNode(3)
 head.next.next.next = ListNode(4)
 head.next.next.next.next = ListNode(5)
 
+reverseList(head)
