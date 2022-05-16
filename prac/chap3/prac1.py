@@ -25,24 +25,23 @@ class Node:
 
 
 class Stack:
-    def __init(self):
+    def __init__(self):
         self.top = None
 
     def push(self, value):
-        self.top = Node(value, self.top) # 지금의 top을 새로운 top으로 바꿔준다.
+        self.top = Node(value, self.top)  # 지금의 top을 새로운 top으로 바꿔준다.
 
     def pop(self):
         if self.top is None:
             return None
 
         node = self.top.item
-        self.top = self.top.next # 여기서 next는 스택에서 가장 위인 top노드의 바로 아래 노드이다.
+        self.top = self.top.next  # 여기서 next는 스택에서 가장 위인 top노드의 바로 아래 노드이다.
 
         return node
 
     def is_empty(self):
         return self.top is None
-
 
 
 stack = Stack()
