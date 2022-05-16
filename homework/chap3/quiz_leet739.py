@@ -8,6 +8,8 @@ from typing import List
 
 temperatures = [73,74,75,71,69,72,76,73]
 
+# [1, 1, 4, 2, 1, 1, 0, 0]
+
 def dailyTemperatures(temperatures: List[int]) -> List[int]:
     # 정답을 담기 위한 리스트 생성
     answer = [0] * len(temperatures)
@@ -17,12 +19,14 @@ def dailyTemperatures(temperatures: List[int]) -> List[int]:
 
     # enumerate() 함수를 사용해서 인덱스와 값을 둘다 뽑아온다.
     for i, cur in enumerate(temperatures):
-        # stack가 있으면서 현재의 온도가 다음 온도보다 높은 경우
+        # stack가 있으면서 현재의 온도가 전 날 온도보다 높은 경우
         while stack and cur > temperatures[stack[-1]]:
-            # 마지막 인덱스인 last를 stack에 담겨있는 index를 꺼내와서 넣어준다.
+            # stack에 담아줬던 첫번째 날의 인덱스를 꺼내와서 last 변수에 담아준다.
             last = stack.pop()
 
-            # answer의 맨 뒤에 i - last를 넣어준다.
+            # answer의 last번째 인덱스에(이번 for문이 돌아가기 전 index가 last에 담겨있다.) 현재의 인덱스 - last 인덱스를 넣어준다.
+            # i에 last를 빼주는 이유? while 조건에서 현재의 날씨가 전날의 날씨보다 낮은 경우 while문을 건너뛰고 stack에 계속 쌓아준다. stack의 pop은 stack에서 가장 마지막 엘리먼트를
+            # 뽑아오므로 현재 날짜에서 n번 건너뛴 숫자가 현재 index - last 가 되는 것이다.
             answer[last] = i - last
 
         # stack(index)이 없을 때, stack에 현재 index를 추가해준다. 여기서 index를 추가해주는 이유는 while문 위에서 추가해주면 stack[-1]이 결국엔 자기 자신(i)이 된다.
@@ -36,8 +40,5 @@ def dailyTemperatures(temperatures: List[int]) -> List[int]:
 
 print(dailyTemperatures(temperatures))
 
-
-def temp(temperatures: List[int]) -> List[int]:
-    return None
 
 
