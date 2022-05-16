@@ -52,7 +52,7 @@ def valid(s: str) -> bool:
         if char not in table:
             # dict에 char가 없으면 stack에 push한다 -> '({['를 넣어줌.
             stack.append(char)
-        elif not stack or table[char] != stack.pop(): # 주의! 연산자의 우선순위에 신경쓸 것
+        elif not stack or table[char] != stack.pop(): # 주의! 연산자의 우선순위에 신경쓸 것 (두 연결리스트의 병합에서도 나옴)
             return False
 
     return len(stack) == 0
