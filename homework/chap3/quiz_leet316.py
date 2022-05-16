@@ -25,7 +25,6 @@ b = sorted(''.join(set(s)))
 # collections.Counter() -> 리스트의 개수를 세서 자동으로 딕셔너리로 만들어준다. 예를들어, [1,1,1,3,5,5,5]를 Counter 함수에 집어넣어주면
 # {1: 3,  3: 1, 5: 3}를 반환해준다.
 
-# 첫번째 풀이
 def removeDuplicateLetters(s:str) -> str:
     # 문자열에서 각 알파벳의 개수를 센 후, 딕셔너리로 반환
     counter = collections.Counter(s)
@@ -49,25 +48,3 @@ def removeDuplicateLetters(s:str) -> str:
 
 
 print(removeDuplicateLetters(s))
-
-
-# 두번째 방법. 해설에서 정석이라고 설명한 방법. 스택은 스택의 기능만 담당하고, 안에 문자열이 있는 지 판별하는 건 set() 자료형인 seen 변수가 담당하게 한다.
-def removeDuplicateLetters(s:str) -> str:
-    counter = collections.Counter(s)
-    seen = set()
-    stack = []
-
-    for char in s:
-        counter[char] -= 1
-
-        # seen 안에 해당 알파벳이 있는 지 검사. 중복을 제거해주는 과정이다.
-        if char in seen:
-            continue
-
-        while stack and char < stack[-1] and counter[stack[-1]] > 0:
-            # seen에서 검색을 마쳤을 때, 조건을 만족하면 seen과 stack에서 모두 삭제해주고, 다음 과정으로 넘어간다.
-            seen.remove(stack.pop())
-        stack.append(char)
-        seen.add(char)
-
-    return ''.join(stack)
