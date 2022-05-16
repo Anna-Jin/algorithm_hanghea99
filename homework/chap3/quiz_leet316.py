@@ -6,7 +6,7 @@
 # set으로 중복 문자를 제거한 뒤, sort함수로 정렬 -> 알파벳 sort는 abc순서로 정렬된다.
 import collections
 
-s = "cbacbcbc"
+s = "cbacdcbc"
 
 b = sorted(''.join(set(s)))
 
