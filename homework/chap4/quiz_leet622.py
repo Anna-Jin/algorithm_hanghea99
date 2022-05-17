@@ -57,3 +57,26 @@ class MyCircularQueue:
     def isFull(self) -> bool:
         # isEmpty와 비슷하지만 차이점은 front가 가리키는 요소에 값이 들어있을 때 True를 반환한다.
         return self.front == self.rear and self.q[self.front] is not None
+
+
+
+# 진정우님 풀이
+class Queue:
+    def __init__(self, capacity):
+        self.front = 0
+        self.rear = 0
+        self.capacity = capacity
+        self.queue = [None] * capacity
+
+    def enqueue(self, item):
+        self.queue[self.rear] = item
+        self.rear += 1
+        if self.rear == self.capacity:
+            self.rear = 0
+
+    def dequeue(self):
+        temp = self.queue[self.front]
+        self.front += 1
+        if self.front == self.capacity:
+            self.front = 0
+        return temp
