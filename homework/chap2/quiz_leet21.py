@@ -39,7 +39,7 @@ l2.next.next = ListNode(4)
 
 # 내 접근 - 속도가 더 빠름
 # 두 리스트의 데이터를 하나씩 꺼내서 배열에 담아 정렬한 다음 새로운 리스트에 담는다.
-def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
     # 정렬하기 위한 배열
     l = []
 
@@ -67,13 +67,14 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
 
     return head
 
+mergeTwoLists(l1, l2)
 
 # 답안 접근
 # 재귀 구조로 연결
 
-def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-    if (not l1) or (l2 and (l1.val > l2.val)):
-        l1, l2 = l2, l1 # 다중할당
-    if l1:
-        l1.next = self.mergeTowLists(l1.next, l2)
-    return l1
+# def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+#     if (not l1) or (l2 and (l1.val > l2.val)):
+#         l1, l2 = l2, l1 # 다중할당
+#     if l1:
+#         l1.next = self.mergeTowLists(l1.next, l2)
+#     return l1
