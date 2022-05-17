@@ -51,6 +51,9 @@ class MyQueue:
         self.peek() # 선입선출을 하기 위해 peek로 pop을 했을 때 가장 먼저 들어간 요소가 꺼내기게 정렬한다.
         return self.output.pop()
 
+    def empty(self):
+        return self.input == [] and self.output == []
+
 queue = MyQueue()
 
 queue.push(1)
