@@ -1,4 +1,4 @@
-# 9장 스택, 큐 - 23. 큐를 이용한 스택 구현
+# 9장 스택, 큐 - 23. 큐를 이용한 스택 구현 (Implement Stack using Queues)
 # 큐를 이용해 다음 연산을 지원하는 스택을 구현하라
 
 # push(x) - 요소 x를 스택에 삽입
@@ -6,13 +6,6 @@
 # top() - 스택의 첫 번째 요소 가져오기
 # empty() - 스택이 비어있는 지 판별
 import collections
-
-
-class Node:
-    def __init__(self, item, next):
-        self.item = item
-        self.next = next
-
 
 class MyStack:
     def __init__(self):
