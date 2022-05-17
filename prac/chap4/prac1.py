@@ -1,3 +1,6 @@
+import collections
+
+
 class Node:
     def __init__(self, item, next):
         self.item = item
@@ -13,7 +16,7 @@ class Queue:
 
     def push(self, value):
         if not self.front:
-            self.front = None(value, None)
+            self.front = Node(value, None)
 
         node = self.front
         while node.next:
