@@ -11,8 +11,10 @@ S = "ZZ"
 
 def numJewelsInStones(J: str, S: str) -> int:
     sum = 0
+
     for j in J:
         count = 0
+
         for s in S:
             if j == s:
                 count += 1
@@ -31,7 +33,7 @@ def numJewelsInStones(J: str, S: str) -> int:
     freqs = {}
 
     for char in S:
-        # 테이블 안에 char 인덱스가 없다면, 해당 인덱스를 생성하고 1을 넣어준다. char not in freqs는 ket값이 있는 지 확인하는 조건문이다.
+        # 테이블 안에 char 인덱스가 없다면, 해당 인덱스를 생성하고 1을 넣어준다. char not in freqs는 key값이 있는 지 확인하는 조건문이다.
         if char not in freqs:
             freqs[char] = 1
         # 테이블 안에 char 인덱스가 있는데 또 같은 값이 들어왔다면, +1을 해준다.
@@ -65,7 +67,7 @@ def numJewelsInStones(J: str, S: str) -> int:
 
 # Counter()로 계산 생략
 def numJewelsInStones(J: str, S: str) -> int:
-    freqs = collections.Counter(S) # 돌(S)의 빈도 수 계산
+    freqs = collections.Counter(S)
     count = 0
 
     for char in J:
