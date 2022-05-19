@@ -6,15 +6,16 @@
 # 전화번호부에 적힌 전화번호를 담은 배열 phone_book 이 solution 함수의 매개변수로 주어질 때,
 # 어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return 하도록 solution 함수를 작성해주세요.
 
-phone_book = ["123","456","789"]
+phone_book = ["119", "97674223", "1195524421"]
 
-# 중첩 for문 사용
 def solution(phone_book):
-    for i in range(len(phone_book)):
-        for j in range(i+1, len(phone_book)):
-            # 서로 자신의 글자로 시작하는 지 판별한다.
-            if phone_book[i].startswith(phone_book[j]) or phone_book[j].startswith(phone_book[i]):
-                return False
+    # 정렬하면 맨 앞에 길이가 제일 작은 숫자가 오게 되므로 전체를 비교할 필요가 없어진다.
+    phone_book.sort()
+
+    # 맨 앞의 요소를 기준으로 prefix가 있는 지 검사하기
+    for num1, num2 in zip(phone_book, phone_book[1:]):
+        if num2.startswith(num1):
+            return False
     return True
 
 print(solution(phone_book))
