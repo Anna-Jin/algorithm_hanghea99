@@ -21,3 +21,12 @@ def solution(phone_book):
 print(solution(phone_book))
 
 
+# 중첩 for문 사용
+def solution(phone_book):
+    for i in range(len(phone_book)):
+        for j in range(i+1, len(phone_book)):
+            # 서로 자신의 글자로 시작하는 지 판별한다.
+            if phone_book[i].startswith(phone_book[j]) or phone_book[j].startswith(phone_book[i]):
+                return False
+    return True
+
