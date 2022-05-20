@@ -3,27 +3,27 @@
 # 재귀 구조로 구현한 슈도 코드(의사코드, pseudocode)
 # 슈도 코드란?프로그램을 작성할 때 각 모듈이 작동하는 논리를 표현아기 위한 언어이다. 특정 프로그래밍 언어의 문법에 따라 쓰인 것이 아니라, 일반적인  언어로 코드를 흉내 내어 알고리즘을 써놓은 코드를 말한다.
 
-graph = {
-    1: [2, 3, 4],
-    2: [5],
-    3: [5],
-    4: [],
-    5: [6, 7],
-    6: [],
-    7: [3],
-}
+graph = [
+    [],
+    [2, 3, 8],
+    [7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
 
 
-def dfs_recursive(node, visited):
-    # 방문처리
-    visited.append(node)
+def dfs_recursive(graph, v, visited):
+    visited[v] = True
 
-    # 인접 노드 방문
-    for adj in graph[node]:
-        if adj not in visited:
-            dfs_recursive(adj, visited)
+    print(v, end=' ')
 
-    return visited
+    for i in graph[v]:
+        if not visited[i]:
+            dfs_recursive(graph, i, visited)
 
 
 def dfs_stack(start):
