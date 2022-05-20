@@ -16,15 +16,19 @@ graph = [
 ]
 
 
-def dfs_recursive(graph, v, visited):
-    visited[v] = True
+def dfs_recursive(v, discoverd=[]):
+    # 시작 노드를 넣어준다.
+    discoverd.append(v)
 
-    print(v, end=' ')
+    # 그래프를 탐색한다.
+    for w in graph[v]:
+        # 인접 노드가 방문한 적이 없다면
+        if w not in discoverd:
+            # 재귀
+            discoverd = dfs_recursive(w, discoverd)
 
-    for i in graph[v]:
-        if not visited[i]:
-            dfs_recursive(graph, i, visited)
-
+    # 재귀가 끝나면 종료
+    return discoverd
 
 def dfs_stack(start):
     visited = []
