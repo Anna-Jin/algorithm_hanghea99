@@ -2,19 +2,7 @@
 
 # 첫번째 - 강의 풀이
 def nqueen(n):
-    """
-    visited 의 인덱스는 행, 값은 열을 나타낸다.
-    (1, 3)에 놓은 경우, visited[1] = 3 으로 표현하겠다는 것.
-
-    예시) n=4 이고 visited = [1, 3, 0, 2] 인 경우,
-    체스판을 그려보면 아래와 같다. (1이 퀸)
-    0 1 0 0
-    0 0 0 1
-    1 0 0 0
-    0 0 1 0
-    """
     visited = [-1] * n
-    cnt = 0
     answers = []
 
     def is_ok_on(nth_row):
@@ -46,19 +34,8 @@ def nqueen(n):
 
         # 0 ~ n-1 행에 퀸을 모두 하나씩 두었을 때 경우의 수를 1 증가시키고 재귀탐색을 종료한다.
         if row >= n:
-            # nonlocal 은 지역변수가 아님을 의미한다.
-            nonlocal cnt
-            cnt += 1
-            print("*" * 80)
-            print(f"{cnt}번째 답 - visited: {visited}")
-            grid = [['.'] * n for _ in range(n)]
-            for idx, value in enumerate(visited):
-                grid[idx][value] = 'Q'
-            result = []
-            for row in grid:
-                print(row)
-                result.append(''.join(row))
-            answers.append(result)
+            answers.append(visited)
+            print(visited)
             ################
             return
 
@@ -74,5 +51,47 @@ def nqueen(n):
     dfs(0)
     return answers
 
+# nqueen(4)
 
-assert nqueen(4) == [[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]]
+
+def n_queen(n):
+    visited = [-1] * n
+    answers = []
+
+    # 1) dfs구현
+    def dfs(row):
+        # 모든 경우의 수를 찾았을 때, answers에 결과값을 담고 리턴
+        if row >= n:
+            answers.append(visited)
+            print(visited)
+            return
+
+        # visited[row]의 값을 결정한다 -> 퀸을 둔다.
+        # 가능한 열의 범위는 0 ~ n - 1이다. 인덱스 번호는 0부터 시작하기 때문이다.
+        # 열의 개수 만큼 반복 한다. 그 행의 열을 돌면서 어디다 퀸을 둘 지 판단해야하기 때문
+        for col in range(n):
+            visited[row] = col
+            # 첫번째 줄에 퀸을 두었으면, 다음 줄에 퀸을 두러간다.
+            # is_ok_on(row) -> 조건으로 주어진, 퀸이 다음 퀸을 잡지 못하는 위치를 판별하는 함수.
+            if is_ok_on(row):
+                # 첫번째 줄의 판별이 끝났다면 다음 줄에 퀸을 놓으러 간다.. ex) (0, 0) -> (1, 0)
+                dfs(row + 1)
+
+    # 퀸이 다른 퀸을 잡을 수 있는 지 판별하는 함수
+    def is_ok_on(nth_row):
+        for row in range(nth_row):
+            # 퀸이 같은 세로줄에 있다면, 혹은 대각선에 있다면, False를 리턴
+            # 대각선은 현재 놓여진 퀸과 새로 놓으려는 퀸의 행 간의 차이 == 열 간의 차이일 때, 판단가능 -> 그림으로 설명하기
+            if visited[nth_row] == visited[row] or nth_row - row == abs(visited[nth_row] - visited[row]):
+                return False
+
+        # 세로줄과 대각선에 퀸이 놓여있지 않다면 다음 퀸을 놓으러 갈 수 있도록 True 리턴
+        return True
+
+    # 0번째 행에 퀸을 둔다.
+    dfs(0)
+
+    # 결과 리턴
+    return answers
+
+n_queen(4)
