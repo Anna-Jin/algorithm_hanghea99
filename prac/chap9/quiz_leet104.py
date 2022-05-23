@@ -4,6 +4,8 @@
 from collections import deque
 from make_tree import make_tree_by
 
+list = [3,9,20,None,None,15,7]
+
 
 def max_depth(list):
     root = make_tree_by(list, 0)
@@ -23,3 +25,6 @@ def max_depth(list):
                 q.append(cur.right)
 
     return depth
+
+
+print(max_depth(list))
