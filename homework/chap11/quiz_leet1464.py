@@ -12,6 +12,8 @@ def maxProduct(nums):
     for num in nums:
         heapq.heappush(heap, (-num, num))
 
+    print(heap)
+
     # 인덱스 기준으로 정렬
     heap.sort()
 
