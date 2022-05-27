@@ -8,7 +8,7 @@ def bubblesort(lst):
 def selectionsort(lst):
     iters = len(lst) - 1
 
-    # 값을 두개 비교하는 거니까 len(lst) - 1까지 반복해줘야함
+    # 값을 두개 비교하는 거니까 len(lst) - 1까지 반복해줘야한다.
     for iter in range(iters):
         # 최솟값의 인덱스를 일단 첫번째 인덱스로 지정해준다.
         minimum = iter
@@ -45,6 +45,7 @@ def insertionsort(lst):
         # 비교하려는 요소의 인덱스를 줄여나갔으므로, 삽입하려는 요소가 와야하는 위치는 cmp + 1이다.
         lst[cmp + 1] = val
 
+    return lst
 
 
 def insertion_sort(lst):
