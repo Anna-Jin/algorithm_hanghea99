@@ -27,7 +27,8 @@ def solution(dirs):
         went = (x, y, nx, ny)
         back = (nx, ny, x, y)
 
-        if went not in visited and -5 <= x <= 5 and -5 <= y <= 5 and -5 <= nx <= 5 and -5 <= ny <= 5:
+        if went not in visited and\
+                -5 <= x <= 5 and -5 <= y <= 5 and -5 <= nx <= 5 and -5 <= ny <= 5:
             visited.append(went)
             visited.append(back)
             cnt += 1
