@@ -1,10 +1,7 @@
-import heapq
+n = int(input())
+lst = []
 
-nums = [4, 1, 7, 3, 8, 5]
-heap = []
+for _ in range(n):
+  lst.append(list(map(str, input().split())))
 
-for num in nums:
-  heapq.heappush(heap, (-num, num))  # (우선 순위, 값)
-
-while heap:
-  print(heapq.heappop(heap)[1])  # index 1
+print(lst)
