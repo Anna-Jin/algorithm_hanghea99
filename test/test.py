@@ -1,7 +1,4 @@
-n = int(input())
-lst = []
+a = 'aoa'
 
-for _ in range(n):
-  lst.append(list(map(str, input().split())))
-
-print(lst)
+print(list(a))
+print(list(reversed(a)))
