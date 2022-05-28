@@ -1,4 +1,1 @@
-a = 'aoa'
-
-print(list(a))
-print(list(reversed(a)))
+print(pow(10, 2))
