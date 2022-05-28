@@ -18,6 +18,7 @@ def binary_search(nums, target):
 
     return bs(0, len(nums) - 1)
 
+# print(binary_search([1,2,3,4,5,6,7,8,5,4,3], 4))
 
 # 내장 모듈 이용
 import bisect
@@ -25,13 +26,15 @@ import bisect
 def binary_search_builtin(nums, target):
     idx = bisect.bisect_left(nums, target)
 
-    if idx < len(nums) and nums[idx] == target:
-        return idx
-    else:
-        return -1
+    # if idx < len(nums) and nums[idx] == target:
+    #     return idx
+    # else:
+    #     return -1
+
+    return idx
 
 
-print(binary_search_builtin([1,2,3,4,5,6,7,8,5,4,3], 4))
+print(binary_search_builtin([3, 4, 5, 6, 7, 8, 9], 2))
 
 
 # 반복풀이
