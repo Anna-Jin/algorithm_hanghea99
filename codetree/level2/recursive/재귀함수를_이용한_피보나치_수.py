@@ -2,6 +2,9 @@ def fibonacci(n):
     if n <= 2:
         return 1
 
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    fibo1 = fibonacci(n - 1)
+    fibo2 = fibonacci(n - 2)
+
+    return fibo1 + fibo2
 
 print(fibonacci(4))
