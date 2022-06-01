@@ -11,6 +11,3 @@ def sequence(n):
 print(sequence(4))
 
 
-
-# 죽은 자는 말이 없다.
-
